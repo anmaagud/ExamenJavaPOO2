@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    let matriz1 = [3, 2, 1, 1, 2, 3, 2, 3, 1];
+    let matriz2 = [1, 1, 2, 2, 1, 1, 1, 2, 1];
+
+    function MostrarContenido(matriz) {
+      return (console.log(matriz));
+    }
+
+    function Multiplicar(m1, m2) {
+      let resultado = [];
+      for (let i = 0; i < m1.length; i++) {
+        let mult = m1[i] * m2[i];
+        resultado.push(mult);
+
+      }
+      return (console.log(resultado));
+    }
+
+    function Suma(m1, m2) {
+      let resultado = [];
+      for (let i = 0; i < m1.length; i++) {
+        let suma = m1[i] + m2[i];
+        resultado.push(suma);
+
+      }
+      return (console.log(resultado));
+    }
+
+
+    MostrarContenido(matriz1);
+    MostrarContenido(matriz2);
+    Multiplicar(matriz1, matriz2);
+    Suma(matriz1, matriz2);
+
+
+  </script>
+</body>
+
+</html>
