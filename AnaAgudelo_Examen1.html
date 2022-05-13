@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    let horaOrdinaria = 265;
+    let horaExtra = 350;
+    let horasAcumuladas = 0;
+    let horasAcumuladasExtras = 0;
+    let salarioEmpleado = 0;
+    let salarioEmpleadoExtra = 0;
+
+    for (let i = 1; i <= 40; i++) {
+      salarioEmpleado = horaOrdinaria + salarioEmpleado;
+      horasAcumuladas = i;
+    }
+    if (horasAcumuladas => 40) {
+      for (let j = 41; j <= 53; j++) {
+        salarioEmpleadoExtra = horaExtra + salarioEmpleadoExtra;
+        horasAcumuladasExtras++;
+      }
+    }
+
+    console.log("El total a pagar por horas laborales normal (40hrs) es de: " + salarioEmpleado);
+    console.log("El total a pagar por " + horasAcumuladasExtras + " hrs es de: " + salarioEmpleadoExtra);
+  </script>
+</body>
+
+</html>
