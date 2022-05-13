@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    class Persona {
+      constructor(nombre, apellido, edad) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.edad = edad;
+      }
+      getDetalles() {
+        console.log(this.nombre, this.apellido, this.edad);
+      }
+    }
+
+    class Empleado extends Persona {
+      constructor(nombre, apellido, edad, tipoEmpleado) {
+        super(nombre, apellido, edad);
+        this.tipoEmpleado = tipoEmpleado;
+      }
+      getDetalles() {
+        console.log(this.nombre, this.apellido, this.edad, this.tipoEmpleado);
+      }
+    }
+
+    class Nomina {
+      constructor(arrayEmpleados) {
+        this.arrayEmpleados = arrayEmpleados;
+      }
+
+      obtenerDiasAleatorio() {
+        let diasAleatorios;
+
+        while (true) {
+          diasAleatorios = Math.floor(Math.random() * 15);
+
+          if (diasAleatorios >= 5)
+            break;
+        }
+
+        return diasAleatorios;
+      }
+
+      calcularNomina() {
+        for (let i = 0; i < this.arrayEmpleados.length; i++) {
+          let empleado;
+          let salario;
+          let salarioNeto;
+          let diasTrabajados;
+          diasTrabajados = this.obtenerDiasAleatorio();
+
+          if (this.arrayEmpleados[i].tipoEmpleado === "S") {
+            empleado = " pertenece a empleado de sindicato con un sueldo de ";
+            salario = 350 * diasTrabajados;
+            salarioNeto = salario * 0.9;
+          }
+
+          if (this.arrayEmpleados[i].tipoEmpleado === "C") {
+            empleado = " pertenece a empleado de confianza con un sueldo de ";
+            salario = 500 * diasTrabajados;
+            salarioNeto = salario * 0.87;
+          }
+          console.log(this.arrayEmpleados[i].nombre + " " + this.arrayEmpleados[i].apellido + " de " + this.arrayEmpleados[i].edad + " años - " + this.arrayEmpleados[i].tipoEmpleado + empleado + salarioNeto + " por " + diasTrabajados + " días trabajados");
+        }
+      }
+    }
+
+    let empleado1 = new Empleado("María", "Carvajal", 33, "C");
+    let empleado2 = new Empleado("Juan", "Almeira", 23, "C");
+    let empleado3 = new Empleado("Dulce", "Salguedo", 42, "S");
+    let arrayEmpleados = [empleado1, empleado2, empleado3];
+
+    let nomina = new Nomina(arrayEmpleados);
+    nomina.calcularNomina();
+
+  </script>
+</body>
+
+</html>
